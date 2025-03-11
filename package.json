@@ -1,0 +1,19 @@
+{
+  "name": "kambaz-node-server-app",
+  "version": "1.0.0",
+  "description": "Web dev class server app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/james-roth/kambaz-node-server-app.git"
+  },
+  "author": "James Roth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/james-roth/kambaz-node-server-app/issues"
+  },
+  "homepage": "https://github.com/james-roth/kambaz-node-server-app#readme"
+}
