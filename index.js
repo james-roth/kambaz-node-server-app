@@ -5,6 +5,7 @@ import express from 'express';
 import WorkingWithObjects from "./Lab5/WorkingWithObjects.js";
 import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
+import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import UserRoutes from "./Kambaz/Users/routes.js";
 import cors from "cors";
 import "dotenv/config";
@@ -36,9 +37,11 @@ app.use(
 );
 app.use(express.json());
 Lab5(app);
-CourseRoutes(app);
 Hello(app);
+WorkingWithArrays(app);
 WorkingWithObjects(app);
 UserRoutes(app);
-WorkingWithArrays(app);
+CourseRoutes(app);
+ModuleRoutes(app);
+
 app.listen(process.env.PORT || 4000);
