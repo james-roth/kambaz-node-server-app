@@ -51,7 +51,7 @@ export default function UserRoutes(app) {
         if (userId === "current") {
             const currentUser = req.session["currentUser"];
             if (!currentUser) {
-                res.sendStatus(401);
+                res.sendStatus(401).json({ message: "Profile error on fetching courses." });
                 return;
             }
             userId = currentUser._id;
