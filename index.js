@@ -7,8 +7,11 @@ import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import UserRoutes from "./Kambaz/Users/routes.js";
+import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import cors from "cors";
 import "dotenv/config";
+import EnrollmentRoutes from "./Kambaz/Enrollments/routes.js";
+
 const app = express();
 app.use(
     cors({
@@ -16,7 +19,6 @@ app.use(
         origin: process.env.NETLIFY_URL || "http://localhost:3000",
     })
 );
-
 const sessionOptions = {
     secret: "any string",
     resave: false,
@@ -31,10 +33,6 @@ if (process.env.NODE_ENV !== "development") {
     };
 }
 app.use(session(sessionOptions));
-
-app.use(
-    session(sessionOptions)
-);
 app.use(express.json());
 Lab5(app);
 Hello(app);
@@ -43,5 +41,7 @@ WorkingWithObjects(app);
 UserRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
+AssignmentRoutes(app);
+EnrollmentRoutes(app);
 
 app.listen(process.env.PORT || 4000);
