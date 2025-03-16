@@ -41,7 +41,7 @@ export default function UserRoutes(app) {
     const profile = async (req, res) => {
         const currentUser = req.session["currentUser"];
         if (!currentUser) {
-            res.sendStatus(401).json({ message: "Unable to find user info in session" });
+            res.sendStatus(401);
             return;
         }
         res.json(currentUser);
