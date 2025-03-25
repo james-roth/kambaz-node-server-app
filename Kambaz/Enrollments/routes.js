@@ -1,19 +1,19 @@
 import * as dao from "./dao.js"
 
 export default function EnrollmentRoutes(app) {
-    app.post("/api/enrollments", (req, res) => {
+    app.post("/api/enrollments", async (req, res) => {
         const enrollment = req.body;
-        const status = dao.addEnrollment(enrollment);
+        const status = await dao.addEnrollment(enrollment);
         res.send(status);
     });
-    app.delete("/api/enrollments/:enrollId", (req, res) => {
+    app.delete("/api/enrollments/:enrollId", async (req, res) => {
         const { enrollId } = req.params;
-        const status = dao.deleteEnrollment(enrollId);
+        const status = await dao.deleteEnrollment(enrollId);
         res.send(status);
     });
-    app.get("/api/enrollments/:userId", (req, res) => {
+    app.get("/api/enrollments/:userId", async (req, res) => {
         const { userId } = req.params;
-        const enrollments = dao.getEnrollments(userId);
+        const enrollments = await dao.getEnrollmentsForUser(userId);
         res.json(enrollments);
     });
 }
