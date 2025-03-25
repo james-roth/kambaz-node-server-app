@@ -7,11 +7,14 @@ import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import UserRoutes from "./Kambaz/Users/routes.js";
+import mongoose from "mongoose";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import cors from "cors";
 import "dotenv/config";
 import EnrollmentRoutes from "./Kambaz/Enrollments/routes.js";
 
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
+mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(
     cors({
