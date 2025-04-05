@@ -122,6 +122,7 @@ export default function UserRoutes(app) {
         const status = await enrollmentsDao.unenrollUserFromCourse(uid, cid);
         res.send(status);
     };
+
     app.post("/api/users/:uid/courses/:cid", enrollUserInCourse);
     app.delete("/api/users/:uid/courses/:cid", unenrollUserFromCourse);
     app.get("/api/users/:userId/courses", findCoursesForEnrolledUser);
