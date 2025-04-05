@@ -15,11 +15,12 @@ import EnrollmentRoutes from "./Kambaz/Enrollments/routes.js";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kambaz"
 mongoose.connect(CONNECTION_STRING);
+
 const app = express();
 app.use(
     cors({
         credentials: true,
-        origin: process.env.NETLIFY_URL || "http://localhost:3000",
+        origin: process.env.NETLIFY_URL || "http://localhost:5173",
     })
 );
 const sessionOptions = {
@@ -32,7 +33,7 @@ if (process.env.NODE_ENV !== "development") {
     sessionOptions.cookie = {
         sameSite: "none",
         secure: true,
-        domain: process.env.NODE_SERVER_DOMAIN,
+        domain: process.env.REMOTE_SERVER,
     };
 }
 app.use(session(sessionOptions));
